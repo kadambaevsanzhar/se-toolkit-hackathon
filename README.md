@@ -76,7 +76,7 @@ Minimal full-stack product for grading photos of homework with a dual-AI review 
 
 ### Telegram bot
 
-1. Open the bot in Telegram.
+1. Open the bot in Telegram(@AI_GRADERX_BOT).
 2. Send one homework photo.
 3. Wait for the bot to return the normalized result.
 4. Read the compact summary with:
