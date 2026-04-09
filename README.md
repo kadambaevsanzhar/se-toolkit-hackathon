@@ -4,11 +4,13 @@ Minimal full-stack product for grading photos of homework with a dual-AI review 
 
 ## Demo
 
-### Web review
-![Web review](docs/screenshots/web-review.png)
+### Website demo
+![Website demo 1](docs/screenshots/web-demo-1.png)
+![Website demo 2](docs/screenshots/web-demo-2.png)
 
-### Telegram review
-![Telegram review](docs/screenshots/telegram-review.png)
+### Telegram demo
+![Telegram demo 1](docs/screenshots/telegram-demo-1.png)
+![Telegram demo 2](docs/screenshots/telegram-demo-2.png)
 
 ## Product context
 
