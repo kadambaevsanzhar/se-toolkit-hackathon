@@ -212,6 +212,82 @@ main {
   cursor: not-allowed;
 }
 
+/* Progress Panel */
+.progress-panel {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #007bff, #28a745);
+  transition: width 0.5s ease;
+  border-radius: 3px;
+}
+
+.progress-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+.progress-stage.active {
+  color: #007bff;
+  background: #e7f1ff;
+  font-weight: 600;
+}
+
+.progress-stage.done {
+  color: #28a745;
+}
+
+.stage-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.stage-label {
+  flex: 1;
+}
+
+.stage-failed .progress-bar {
+  background: linear-gradient(90deg, #dc3545, #c82333);
+}
+
+.stage-failed .progress-stage.active {
+  color: #dc3545;
+  background: #f8d7da;
+}
+
 .error {
   color: #dc3545;
   margin-top: 10px;
@@ -283,6 +359,293 @@ main {
 
 .mistakes-section li {
   margin-bottom: 4px;
+}
+
+/* Validator Flags Styles */
+.validator-flags-section {
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.flags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.flag-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #e9ecef;
+  color: #495057;
+}
+
+.flag-validator_applied {
+  background: #d4edda;
+  color: #155724;
+}
+
+.flag-score_adjusted {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.flag-validator_failed {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.flag-analysis_failed,
+.flag-fallback_response {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.flag-analyzer_output_normalized {
+  background: #cce5ff;
+  color: #004085;
+}
+
+/* Next Steps Section */
+.next-steps-section {
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.next-steps-section h4 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.next-steps-section ul {
+  color: #555;
+  padding-left: 20px;
+}
+
+.next-steps-section li {
+  margin-bottom: 4px;
+}
+
+/* Back button for history detail */
+.back-btn {
+  padding: 8px 16px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #5a6268;
+}
+
+/* Rejection Card */
+.rejection-card {
+  background: #fff8f0;
+  border: 2px solid #ffcc80;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.rejection-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.rejection-card h3 {
+  color: #e65100;
+  margin-bottom: 10px;
+}
+
+.rejection-card p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.rejection-suggestion {
+  background: white;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: left;
+}
+
+.rejection-suggestion ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+.rejection-suggestion li {
+  margin-bottom: 4px;
+  color: #555;
+}
+
+/* Validation Status */
+.validation-status {
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.validation-status.preliminary {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+}
+
+.validation-status.validated {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #28a745;
+}
+
+/* Unavailable message */
+.unavailable-msg {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.validator-reason {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Topic Labels / Metadata Line */
+.topic-labels,
+.metadata-line {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.topic-badge.student {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.topic-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.topic-badge.subject {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.topic-badge.topic {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.topic-badge.task {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* History topic badges */
+.history-topics {
+  display: flex;
+  gap: 4px;
+  margin: 4px 0;
+  flex-wrap: wrap;
+}
+
+.mini-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  background: #e9ecef;
+  color: #495057;
+}
+
+.student-badge {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+/* Detailed Mistakes */
+.detailed-mistakes-section {
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.detailed-mistakes-section h4 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.mistake-card {
+  background: #fff8f0;
+  border: 1px solid #ffe0b2;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.mistake-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.mistake-type-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mistake-type-badge.math_error { background: #ffcdd2; color: #c62828; }
+.mistake-type-badge.missing_step { background: #fff9c4; color: #f57f17; }
+.mistake-type-badge.weak_explanation { background: #ffe0b2; color: #e65100; }
+.mistake-type-badge.presentation { background: #e1bee7; color: #6a1b9a; }
+.mistake-type-badge.other { background: #e0e0e0; color: #424242; }
+
+.mistake-location {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+.mistake-card p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.mistake-card p strong {
+  color: #333;
 }
 
 .reset-btn {

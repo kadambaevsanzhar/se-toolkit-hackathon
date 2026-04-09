@@ -21,12 +21,14 @@ services:
       db:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://grader:grader@db:5432/grader_dev
-      AI_BASE_URL: ${AI_BASE_URL:-http://host.docker.internal:42006/v1}
-      AI_API_KEY: ${AI_API_KEY}
-      AI_MODEL: ${AI_MODEL:-qwen3-coder-plus}
-      AI_MAX_SCORE: ${AI_MAX_SCORE:-10}
-      AI_TIMEOUT: ${AI_TIMEOUT:-30}
+      DATABASE_URL: postgresql+psycopg://grader:grader@db:5432/grader_dev
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      AI_API_KEY: ${AI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_ANALYZER_MODEL: ${OPENAI_ANALYZER_MODEL:-qwen/qwen3-vl-8b-instruct}
+      OPENAI_VALIDATOR_MODEL: ${OPENAI_VALIDATOR_MODEL:-gpt-4.1-mini}
+      OPENAI_TIMEOUT: ${OPENAI_TIMEOUT:-90}
+      AI_MAX_SCORE: 10
       MAX_UPLOAD_SIZE_MB: 10
       LOG_LEVEL: INFO
     ports:
@@ -40,15 +42,17 @@ services:
       backend:
         condition: service_started
     environment:
-      TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+      TELEGRAM_TOKEN: ${TELEGRAM_TOKEN:-placeholder}
       BACKEND_URL: http://backend:8000
+      ANALYSIS_TIMEOUT: 150
+      DISPLAY_TZ: Europe/Moscow
     restart: unless-stopped
 
   frontend:
     build:
       context: ./frontend
       args:
-        VITE_API_URL: ${VITE_API_URL:-http://backend:8000}
+        VITE_API_URL: http://backend:8000
     depends_on:
       - backend
     ports:

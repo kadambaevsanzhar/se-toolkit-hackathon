@@ -14,3 +14,9 @@ dist/
 .vscode/
 .idea/
 db_migrations/
+*.db
+_history_probe.png
+backend/_vm_probe.png
+backend/test.png
+frontend/.tmp-render-*/
+docs/screenshots/*.tmp
